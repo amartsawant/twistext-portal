@@ -167,31 +167,17 @@ export default function TransformDemo() {
     <section id="demo" className="py-16 md:py-24 px-4 md:px-6 bg-[#0b0f18]">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-3">See it in action</h2>
-        <p className="text-white/50 text-base mb-16">
-          Every transformation happens instantly on your device
+        <p
+          className="text-base mb-12 transition-all duration-300 font-semibold tracking-wide"
+          style={{
+            opacity: visible ? 1 : 0,
+            background: "linear-gradient(90deg, #6366f1, #a78bfa)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          {mode.label}
         </p>
-
-        {/* Mode pill selector */}
-        <div className="flex overflow-x-auto gap-2 mb-12 pb-1 justify-start md:justify-center scrollbar-none -mx-2 px-2">
-          <div className="flex gap-2 mx-auto">
-          {MODES.map((m, i) => (
-            <button
-              key={m.label}
-              onClick={() => {
-                setVisible(false);
-                setTimeout(() => { setIndex(i); setVisible(true); }, 200);
-              }}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                i === index
-                  ? "bg-[#6366f1] text-white"
-                  : "bg-white/6 text-white/50 hover:bg-white/10 hover:text-white/80"
-              }`}
-            >
-              {m.label}
-            </button>
-          ))}
-          </div>
-        </div>
 
         {/* Demo card */}
         <div
@@ -202,11 +188,8 @@ export default function TransformDemo() {
             className="py-12 px-5 md:py-16 md:px-10 flex flex-col items-center gap-6 md:gap-8 transition-all duration-300"
             style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(10px)" }}
           >
-            {/* Mode label */}
-            <p className="text-white/40 text-base tracking-wide">{mode.label}</p>
-
             {/* Input */}
-            <p className="text-white font-bold text-5xl tracking-wide">{mode.input}</p>
+            <p className="text-white font-bold text-4xl md:text-5xl tracking-wide">{mode.input}</p>
 
             {/* Three dot separator */}
             <div className="flex items-center gap-2">
